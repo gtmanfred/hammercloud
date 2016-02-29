@@ -1,0 +1,5 @@
+pexpect
+requests
+stevedore
+PyYaml
+Jinja2

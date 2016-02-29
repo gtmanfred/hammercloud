@@ -1,0 +1,55 @@
+#!/usr/bin/env expect
+proc serverinfo {} {
+send_user "\\[94mDevice:\\[0m {{login.hostname}}
+\\[94mUUID:\\[0m {{login.instance_id}}
+\\[94mAccount:\\[0m {{login.tenantid}}
+\\[94mPrimary IP:\\[0m {{login.access_ip}}
+{%- if login.access_ip != login.public_ip %}
+\\[94mInitial Public IP:\\[0m {{login.public_ip}}
+{%- endif %}
+\\[94mPrivate IP:\\[0m {{login.private_ip}}
+\\[94mUser:\\[0m rack / {{login.admin_password}}
+
+"}
+serverinfo
+exec rm -f $argv0
+set timeout -1
+log_user 1
+spawn -noecho ssh -l {{login.ssh_user}} -o RSAAuthentication=no \
+    -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null \
+    -o GSSAPIAuthentication=no {{login.ip}} -p {{login.port}} \
+    {{login.server_key}} {{login.ssh_args}} {{login.use_bastion}}
+match_max 100000
+{%- if not login.server_key %}
+expect {
+	-re {[P|p]assword: } {
+		sleep .1
+		send -- "{{login.admin_password}}"
+		sleep .1
+	}
+	"Connection closed by remote host" {
+		exit
+	}
+	-re "\]. |incorrect password|sudoers|try again|root|ROOT|%% "
+}
+{%- endif %}
+{%- if not login.skip_root %}
+expect {
+	-re "\$|\$:" {
+		send -- "LC_ALL=en exec sudo -k su - ;"
+		sleep .1
+	}
+}
+{%- endif %}
+{%- for command in login.autorun_commands %}
+expect {
+	-re "\$|\$:" {
+		send -- "{{command}}"
+		sleep .1
+	}
+}
+{%- endfor %}
+trap { stty rows [stty rows] columns [stty columns] < $spawn_out(slave,name)} WINCH
+interact {
+	\034 exit
+}

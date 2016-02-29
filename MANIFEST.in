@@ -1,0 +1,3 @@
+graft hammercloud/templates
+graft misc
+include LICENSE.txt
