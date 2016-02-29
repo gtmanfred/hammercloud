@@ -20,6 +20,10 @@ from hammercloud import Constants as const
 from hammercloud.templates import env
 
 
+def virtual():
+    return True
+
+
 # pylint: disable=no-method-argument
 class DevNull(object):
     '''

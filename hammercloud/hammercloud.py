@@ -23,8 +23,6 @@ def main():
 
     hammercloud.Shell(config=hcconfig)
 
-    reporting = hammercloud.Metrics(hcconfig.get('user'), hammercloud.__version__)
-
     if kwargs.with_spam is True:
         hammercloud.spam()
 
@@ -87,7 +85,6 @@ def main():
     elif not kwargs.servers:
         parser.print_help()
 
-    metric = None
     if not servers:
         servers = kwargs.servers
 
@@ -97,7 +94,7 @@ def main():
     handle = functools.partial(hammercloud.handle.handle, args=kwargs)
     if isinstance(servers, six.string_types):
         try:
-            (ret, metric) = handle(servers)
+            ret = handle(servers)
         except KeyboardInterrupt:
             return
         if ret:
@@ -116,6 +113,3 @@ def main():
             terminal = hammercloud.terminal.HammerCloudTerminal()
             method = getattr(terminal, myterm)
             method(names)
-
-        if metric:
-            reporting.report(metric)

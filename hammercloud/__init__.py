@@ -52,12 +52,6 @@ Constants = stevedore.driver.DriverManager(
     invoke_on_load=False,
 ).driver
 
-Metrics = stevedore.driver.DriverManager(
-    namespace='.'.join(['hammercloud', hcconfig.get('plugin', 'static')]),
-    name='Metrics',
-    invoke_on_load=False,
-).driver
-
 Shell = stevedore.driver.DriverManager(
     namespace='.'.join(['hammercloud', hcconfig.get('plugin', 'static')]),
     name='Shell',

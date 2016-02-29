@@ -49,6 +49,16 @@ class BaseServer(object):
         return self._server
 
     @property
+    def datacenter(self):
+        if hasattr(self, '_datacenter'):
+            return self._datacenter
+        return None
+
+    @datacenter.setter
+    def datacenter(self, value):
+        self._datacenter = value
+
+    @property
     def firstgen(self):
         if valid_uuid(self.instance_id):
             return False
@@ -184,7 +194,7 @@ class BaseServer(object):
 
     @property
     def password(self):
-        raise NotImplemented('password api must be implemented in plugin')
+        return self.args.password
 
     @property
     def admin_password(self):

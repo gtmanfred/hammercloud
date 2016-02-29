@@ -151,7 +151,7 @@ class Connection(object):
                 if self.channel in read_ready:
                     # try to do a read from the remote end and print to screen
                     try:
-                        out = self._read()
+                        out = self._read().decode('utf-8')
 
                         # remote close
                         if len(out) == 0:

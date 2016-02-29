@@ -161,6 +161,11 @@ def parser(parse=True):
         help='ssh port'
     )
     options.add_argument(
+        '--password',
+        dest='password', type=str, default=None,
+        help='ssh password'
+    )
+    options.add_argument(
         '--ssh-user',
         dest='ssh_user', type=str,
         default='rack', help='ssh user'
