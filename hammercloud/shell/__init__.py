@@ -186,7 +186,8 @@ class BaseShell(object):
     def __new__(cls, config=None):
         if cls.config is None:
             cls.config = config
-            cls.shell = globals()[cls.config.get('shelltype', 'expect')]
+            shell = globals()[cls.config.get('shelltype', 'expect')]
+            cls.shell = shell if shell.virtual() else globals()['expect']
         return super(BaseShell, cls).__new__(cls)
 
     def __getattr__(self, func):

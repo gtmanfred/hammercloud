@@ -5,12 +5,20 @@ SSH commands using paramiko
 from __future__ import print_function
 import sys
 import select
-import paramiko
 import os
 import subprocess
 import socket
 import termios
 import tty
+try:
+    import paramiko
+    HAS_PARAMIKO = True
+except ImportError:
+    HAS_PARAMIKO = False
+
+
+def virtual():
+    return HAS_PARAMIKO
 
 
 def _socket():

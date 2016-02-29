@@ -1,0 +1,16 @@
+pkgname=hammercloud
+pkgver=XXXX
+pkgrel=1
+pkgdesc='Easy to log into cloud servers on openstack'
+arch=('any')
+url="http://github.com/gtmanfred/$pkgname"
+license=('custom')
+depends=('python-pexpect' 'python-requests' 'expect' 'python-beautifulsoup4' 'python-jinja2'
+         'python-stevedore' 'python-yaml')
+makedepends=('python-setuptools')
+source=("https://pypi.python.org/packages/source/h/$pkgname/$pkgname-$pkgver.tar.gz")
+
+package(){
+    cd $srcdir/$pkgname-$pkgver
+    python2 setup.py install --root=$pkgdir
+}

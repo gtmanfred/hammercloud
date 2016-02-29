@@ -1,0 +1,42 @@
+Source: hammercloud
+Maintainer: Daniel Wallace <danielwallace@gtmanfred.com>
+Section: python
+Priority: optional
+Standards-Version: 3.9.5
+Build-Depends:
+ debhelper (>= 9),
+ dh-python,
+ python-all (>= 2.6.6-3),
+ python3-all
+X-Python-Version: >= 2.6
+X-Python3-Version: >= 3.0
+
+Package: python-hammercloud
+Architecture: all
+Depends:
+ ${misc:Depends},
+ ${python:Depends},
+ python-requests,
+ python-pexpect,
+ python-bs4,
+ python-stevedore,
+ python-jinja2,
+ python-yaml,
+ expect
+Description: Easily log into cloud servers
+ Python script to log into cloud servers
+
+Package: python3-hammercloud
+Architecture: all
+Depends:
+ ${misc:Depends},
+ ${python3:Depends},
+ python3-requests,
+ python3-pexpect,
+ python3-bs4,
+ python3-stevedore,
+ python3-jinja2,
+ python3-yaml,
+ expect
+Description: Easily log into cloud servers
+ Python script to log into cloud servers
