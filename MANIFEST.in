@@ -2,4 +2,5 @@ graft hammercloud/templates
 graft misc
 graft pkgs
 graft debian
+include README.md
 include LICENSE.txt
