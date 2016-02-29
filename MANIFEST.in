@@ -1,4 +1,3 @@
-graft hammercloud/templates/*.jinja
 graft misc
 graft pkgs
 graft debian
