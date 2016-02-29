@@ -1,0 +1,86 @@
+hammercloud (XXXX-1) unstable; urgency=low
+
+    * stub for autobuilding
+
+ -- daniel <daniel.wallace@rackspace.com>  Thu, 29 Jan 2014 09:25:15 +0000
+hammercloud (2.5.1-1) unstable; urgency=low
+
+  * Clean up some handling of first gen stuff
+  * Implement changes needed by overtime
+  * I forgot to change setup.py for 2.5.0
+
+ -- daniel <daniel.wallace@rackspace.com>  Fri, 23 Jan 2014 03:44:15 +0000
+hammercloud (2.4.9-2) unstable; urgency=low
+
+  * Added 'expect' to dependencies
+
+ -- bill <bill.giokas@rackspace.com>  Sat, 13 Dec 2014 03:27:15 +0000
+hammercloud (2.4.9-1) unstable; urgency=low
+
+  * add the ability to list all cloud servers attached to a dedicated account
+  * remove X11 forwarding from the ssh args in shell.py because they can be
+    specified in ssh_args
+
+ -- daniel <daniel.wallace@rackspace.com>  Sat, 13 Dec 2014 03:27:15 +0000
+hammercloud (2.4.8-1) unstable; urgency=low
+
+  * add autorun.d directory
+  * document autorun and --skip-scripts
+
+ -- daniel <daniel.wallace@rackspace.com>  Mon, 17 Nov 2014 19:12:30 +0000
+hammercloud (2.4.7-1) unstable; urgency=low
+
+  * make sure impersonation is done before getting token
+
+ -- daniel <daniel.wallace@rackspace.com>  Wed, 12 Nov 2014 09:30:15 +0000
+hammercloud (2.4.6-1) unstable; urgency=low
+
+  * remove backstage requirement
+
+ -- daniel <daniel.wallace@rackspace.com>  Wed, 12 Nov 2014 09:30:15 +0000
+hammercloud (2.4.5-1) unstable; urgency=low
+
+  * add skip-root
+
+ -- daniel <daniel.wallace@rackspace.com>  Wed, 12 Nov 2014 09:30:15 +0000
+hammercloud (2.4.4-1) unstable; urgency=low
+
+  * fix python3 compatibility
+
+ -- daniel <daniel.wallace@rackspace.com>  Thu, 6 Nov 2014 20:15:20 +0000
+hammercloud (2.4.3-1) unstable; urgency=low
+
+  * add firstgen hypervisors
+
+ -- daniel <daniel.wallace@rackspace.com>  Wed, 5 Nov 2014 15:46:20 +0000
+hammercloud (2.4.0-1) unstable; urgency=low
+
+  * add firstgen
+
+ -- daniel <daniel.wallace@rackspace.com>  Tue, 4 Nov 2014 15:51:43 +0000
+hammercloud (2.3.11-1) unstable; urgency=low
+
+  * tagging to rebuild for el5
+
+ -- daniel <daniel.wallace@rackspace.com>  Fri, 31 Oct 2014 16:00:02 +0000
+hammercloud (2.3.10-1) unstable; urgency=low
+
+  * switched to absolute_import
+  * added a return after printing help (Closing #14)
+
+ -- daniel <daniel.wallace@rackspace.com>  Thu, 30 Oct 2014 14:14:32 +0000
+hammercloud (2.3.9-1) unstable; urgency=low
+
+  * finish automating all the builds
+
+ -- daniel <daniel.wallace@rackspace.com>  Thu, 30 Oct 2014 12:21:10 +0000
+hammercloud (2.3.8-1) unstable; urgency=low
+
+  * adding rpm builds
+
+ -- daniel <daniel.wallace@rackspace.com>  Thu, 30 Oct 2014 00:27:19 +0000
+hammercloud (2.3.7-1) unstable; urgency=low
+
+  * Initial release.
+
+ -- daniel <daniel.wallace@rackspace.com>  Wed, 29 Oct 2014 22:27:19 +0000
