@@ -21,7 +21,7 @@ def main():
 
     hcconfig = hammercloud.hcconfig
 
-    hammercloud.Shell(config=hcconfig)
+    hammercloud.Shell(config=hcconfig, constants=hammercloud.Constants)
 
     if kwargs.with_spam is True:
         hammercloud.spam()

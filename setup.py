@@ -38,10 +38,6 @@ options = {
     'include_package_data': True,
     'zip_safe': False,
     'setup_requires': ['pbr>=0.8.2'],
-    'install_requires': [
-        'requests',
-        'pexpect'
-    ],
     'pbr': True,
 }
 
