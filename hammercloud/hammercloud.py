@@ -92,7 +92,9 @@ def main():
         servers = servers[0]
 
     handle = functools.partial(hammercloud.handle.handle, args=kwargs)
-    if isinstance(servers, six.string_types):
+    if not servers:
+        return None
+    elif isinstance(servers, six.string_types):
         try:
             ret = handle(servers)
         except KeyboardInterrupt:
