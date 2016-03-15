@@ -36,7 +36,7 @@ def main():
         hammercloud.tokens.set(name=hcconfig.get('user'), key='identity', value=kwargs.token)
 
     elif kwargs.nova is not None:
-        with hammercloud.Account(username=kwargs.username, region=kwargs.nova[1].upper()) as sess:
+        with hammercloud.Account(username=kwargs.nova[0], region=kwargs.nova[1].upper()) as sess:
             sess.setup_keyring()
 
     elif kwargs.ipfinder:
@@ -92,7 +92,9 @@ def main():
         servers = servers[0]
 
     handle = functools.partial(hammercloud.handle.handle, args=kwargs)
-    if isinstance(servers, six.string_types):
+    if not servers:
+        return None
+    elif isinstance(servers, six.string_types):
         try:
             ret = handle(servers)
         except KeyboardInterrupt:

@@ -10,6 +10,12 @@ log = logging.getLogger(__name__)
 
 IDENTITY = 'https://identity.api.rackspacecloud.com/v2.0'
 
+try:
+    import supernova.credentials
+    HAS_SUPERNOVA = True
+except ImportError as exc:
+    HAS_SUPERNOVA = False
+
 
 class BaseAccount(object):
     _config = None
