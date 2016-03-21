@@ -100,7 +100,7 @@ def main():
         except KeyboardInterrupt:
             return
         if ret:
-            subprocess.call('{0}/{1}.sh'.format(hammercloud.cachedir, ret), shell=True)
+            subprocess.call(['{0}/{1}.sh'.format(hammercloud.cachedir, ret)])
     elif isinstance(servers, list):
         pool = multiprocessing.Pool(len(servers))
         myterm = hcconfig.get('terminal')
