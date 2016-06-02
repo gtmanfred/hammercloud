@@ -10,6 +10,7 @@ import subprocess
 import sys
 
 from hammercloud.shell import expect, pshell  # noqa
+from hammercloud.static import const
 
 
 def spam():
