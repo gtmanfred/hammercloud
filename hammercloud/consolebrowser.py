@@ -17,6 +17,8 @@ class ConsoleBrowser(object):
             self._init_linux(browser)
         elif platform.system() == 'Darwin':
             self._init_mac(browser)
+        elif platform.system() == 'FreeBSD':
+            self._init_linux(browser)
         else:
             raise Exception('Unknown OS')
 
